@@ -211,7 +211,7 @@ export default function Home() {
             <SkillCard 
               icon={<Database className="w-6 h-6 text-primary" />}
               title="Web & Tools"
-              items={["FastAPI", "Streamlit", "Docker", "Render", "Git"]}
+              items={["FastAPI", "Streamlit", "Docker", "Render", "Git", "Power BI", "MS Excel"]}
               delay={0.5}
             />
           </div>
