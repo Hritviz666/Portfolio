@@ -70,7 +70,7 @@ export default function Home() {
             </div>
             
             <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tighter mb-6 leading-[1.1]">
-              Building <span className="text-primary">intelligent systems</span> from the ground up.
+              Transforming <span className="text-primary">Complex Problems</span> into AI Solutions.
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
