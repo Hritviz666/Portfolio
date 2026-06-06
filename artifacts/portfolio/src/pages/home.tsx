@@ -70,7 +70,7 @@ export default function Home() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
               <BrainCircuit className="w-4 h-4" />
-              <span>ML/AI Engineer & Developer</span>
+              <span>B.Tech IT Student | AI & ML Enthusiast | Problem Solver </span>
             </div>
             
             <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tighter mb-6 leading-[1.1]">
