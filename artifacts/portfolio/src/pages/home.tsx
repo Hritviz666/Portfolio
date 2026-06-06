@@ -74,7 +74,7 @@ export default function Home() {
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
-              I'm Hritviz Manral, an IT student at IIIT Una. I write production-grade Python, compete in CP, and ship real ML pipelines.
+              A B.Tech IT student at IIIT Una with a passion for AI, Machine Learning, Generative AI, and Software Development. I enjoy building intelligent applications, solving algorithmic problems, and transforming ideas into real-world solutions.
             </p>
             
             <div className="flex flex-wrap items-center gap-4">
@@ -108,10 +108,20 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-display font-bold mb-6">Background</h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              At 20, my obsession lies at the intersection of robust software engineering and applied artificial intelligence. I don't just train models in notebooks—I build end-to-end systems that serve predictions reliably. 
+            <h2 className="text-3xl font-display font-bold mb-6">About Me</h2>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-4">
+              A B.Tech IT student at IIIT Una with a passion for AI, Machine Learning, Generative AI, and Software Development. I enjoy building intelligent applications, solving algorithmic problems, and transforming ideas into real-world solutions.
             </p>
+            <p className="text-muted-foreground text-base leading-relaxed mb-6">
+              Currently focused on ML, Deep Learning, Competitive Programming, and developing impactful AI-powered projects.
+            </p>
+            <div className="flex flex-wrap gap-2 mb-8">
+              {["AI/ML", "Generative AI", "Deep Learning", "Software Engineering", "Competitive Programming", "System Design"].map((interest) => (
+                <span key={interest} className="text-xs px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium">
+                  {interest}
+                </span>
+              ))}
+            </div>
             <div className="space-y-4 text-sm">
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Mail className="w-5 h-5 text-primary" />
