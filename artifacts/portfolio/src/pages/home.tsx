@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { 
   Github, 
@@ -14,11 +14,9 @@ import {
   User,
   MessageSquare,
   Download,
-  Star,
-  GitFork,
-  ExternalLink,
-  Users,
-  BookOpen
+  Award,
+  BookOpen,
+  ExternalLink
 } from "lucide-react";
 import { 
   SiPython, 
@@ -50,7 +48,7 @@ export default function Home() {
             <a href="#about" className="hover:text-foreground transition-colors">About</a>
             <a href="#skills" className="hover:text-foreground transition-colors">Skills</a>
             <a href="#projects" className="hover:text-foreground transition-colors">Projects</a>
-            <a href="#github" className="hover:text-foreground transition-colors">GitHub</a>
+            <a href="#certifications" className="hover:text-foreground transition-colors">Certifications</a>
             <a href="#achievements" className="hover:text-foreground transition-colors">Achievements</a>
             <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
           </div>
@@ -271,18 +269,37 @@ export default function Home() {
           </div>
         </section>
 
-        {/* GITHUB STATS */}
-        <section id="github" className="space-y-12 scroll-mt-24">
+        {/* CERTIFICATIONS & COURSES */}
+        <section id="certifications" className="space-y-12 scroll-mt-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl font-display font-bold mb-2">GitHub Activity</h2>
-            <p className="text-muted-foreground text-lg">Live stats and top repositories.</p>
+            <h2 className="text-3xl font-display font-bold mb-2">Certifications & Courses</h2>
+            <p className="text-muted-foreground text-lg">Learning that shaped my technical foundation.</p>
           </motion.div>
-          <GitHubStats username="Hritviz666" />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <CertCard
+              icon={<BookOpen className="w-5 h-5 text-primary" />}
+              title="Complete Data Science, ML, DL & NLP Bootcamp"
+              issuer="Udemy"
+              description="End-to-end bootcamp covering Data Science, Machine Learning, Deep Learning, and Natural Language Processing with hands-on Python projects."
+              tags={["Python", "ML", "Deep Learning", "NLP", "Data Science"]}
+              delay={0.1}
+            />
+            <CertCard
+              icon={<Award className="w-5 h-5 text-primary" />}
+              title="Algo University — Dynamic Programming Camp"
+              issuer="Algo University"
+              date="Apr 2026"
+              description="Selected among 4,000 shortlisted from 40,000+ applicants. Completed the intensive DP camp and earned a certificate as a top 1,000 finisher."
+              tags={["Dynamic Programming", "Algorithms", "Competitive Programming"]}
+              delay={0.2}
+            />
+          </div>
         </section>
 
         {/* ACHIEVEMENTS */}
@@ -577,160 +594,71 @@ function ContactForm() {
   );
 }
 
-interface GitHubUser {
-  public_repos: number;
-  followers: number;
-  following: number;
-  avatar_url: string;
-}
-
-interface GitHubRepo {
-  id: number;
-  name: string;
-  description: string | null;
-  html_url: string;
-  stargazers_count: number;
-  forks_count: number;
-  language: string | null;
-}
-
-function GitHubStats({ username }: { username: string }) {
-  const [user, setUser] = useState<GitHubUser | null>(null);
-  const [repos, setRepos] = useState<GitHubRepo[]>([]);
-  const [totalStars, setTotalStars] = useState(0);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const [userRes, reposRes] = await Promise.all([
-          fetch(`https://api.github.com/users/${username}`),
-          fetch(`https://api.github.com/users/${username}/repos?sort=stars&per_page=6`),
-        ]);
-        if (!userRes.ok || !reposRes.ok) throw new Error("GitHub API error");
-        const userData: GitHubUser = await userRes.json();
-        const reposData: GitHubRepo[] = await reposRes.json();
-        const stars = reposData.reduce((sum, r) => sum + r.stargazers_count, 0);
-        setUser(userData);
-        setRepos(reposData);
-        setTotalStars(stars);
-      } catch {
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchData();
-  }, [username]);
-
-  if (loading) {
-    return (
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 animate-pulse">
-        {[1, 2, 3].map((i) => (
-          <div key={i} className="h-24 rounded-xl bg-secondary border border-border" />
-        ))}
-      </div>
-    );
-  }
-
-  if (error || !user) {
-    return (
-      <p className="text-muted-foreground text-sm">Could not load GitHub data right now.</p>
-    );
-  }
-
-  const stats = [
-    { label: "Public Repos", value: user.public_repos, icon: <BookOpen className="w-5 h-5 text-primary" /> },
-    { label: "Total Stars", value: totalStars, icon: <Star className="w-5 h-5 text-primary" /> },
-    { label: "Followers", value: user.followers, icon: <Users className="w-5 h-5 text-primary" /> },
-  ];
-
+function CertCard({
+  icon,
+  title,
+  issuer,
+  date,
+  description,
+  tags,
+  link,
+  delay,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  issuer: string;
+  date?: string;
+  description: string;
+  tags: string[];
+  link?: string;
+  delay: number;
+}) {
   return (
-    <div className="space-y-8">
-      {/* Stat counters */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        {stats.map(({ label, value, icon }, i) => (
-          <motion.div
-            key={label}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.1 }}
-            className="flex items-center gap-4 p-5 bg-background border border-border rounded-xl"
-          >
-            <div className="p-2.5 bg-primary/10 border border-primary/20 rounded-lg shrink-0">
-              {icon}
-            </div>
-            <div>
-              <p className="text-2xl font-display font-bold text-foreground">{value}</p>
-              <p className="text-xs text-muted-foreground mt-0.5">{label}</p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Top repos */}
-      <div>
-        <p className="text-sm font-medium text-muted-foreground mb-4 uppercase tracking-wider">Top Repositories</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {repos.map((repo, i) => (
-            <motion.a
-              key={repo.id}
-              href={repo.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.35, delay: i * 0.08 }}
-              className="group flex flex-col gap-3 p-4 bg-background border border-border rounded-xl hover:border-primary/40 transition-colors"
-            >
-              <div className="flex items-start justify-between gap-2">
-                <span className="font-medium text-sm text-foreground truncate">{repo.name}</span>
-                <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors shrink-0 mt-0.5" />
-              </div>
-              {repo.description && (
-                <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">{repo.description}</p>
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.45, delay }}
+      className="group relative flex flex-col gap-4 p-6 bg-background border border-border rounded-xl hover:border-primary/40 transition-colors overflow-hidden"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="relative z-10 flex items-start justify-between gap-4">
+        <div className="flex items-start gap-4">
+          <div className="p-2.5 bg-primary/10 border border-primary/20 rounded-lg shrink-0 mt-0.5">
+            {icon}
+          </div>
+          <div>
+            <h3 className="font-display font-bold text-foreground leading-snug mb-1">{title}</h3>
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-primary font-medium">{issuer}</span>
+              {date && (
+                <>
+                  <span className="text-border">·</span>
+                  <span className="text-muted-foreground font-mono text-xs">{date}</span>
+                </>
               )}
-              <div className="flex items-center gap-4 text-xs text-muted-foreground mt-auto">
-                {repo.language && (
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-primary" />
-                    {repo.language}
-                  </span>
-                )}
-                <span className="flex items-center gap-1">
-                  <Star className="w-3 h-3" />
-                  {repo.stargazers_count}
-                </span>
-                <span className="flex items-center gap-1">
-                  <GitFork className="w-3 h-3" />
-                  {repo.forks_count}
-                </span>
-              </div>
-            </motion.a>
-          ))}
+            </div>
+          </div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.5 }}
-          className="mt-6 text-center"
-        >
+        {link && (
           <a
-            href={`https://github.com/${username}`}
+            href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+            className="shrink-0 p-1.5 text-muted-foreground hover:text-primary transition-colors"
           >
-            <Github className="w-4 h-4" />
-            View all repositories on GitHub
+            <ExternalLink className="w-4 h-4" />
           </a>
-        </motion.div>
+        )}
       </div>
-    </div>
+      <p className="relative z-10 text-sm text-muted-foreground leading-relaxed">{description}</p>
+      <div className="relative z-10 flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <span key={tag} className="text-xs px-2.5 py-1 bg-secondary text-secondary-foreground rounded-md border border-border/50">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </motion.div>
   );
 }
