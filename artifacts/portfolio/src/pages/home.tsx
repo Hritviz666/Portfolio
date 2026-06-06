@@ -74,7 +74,7 @@ export default function Home() {
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
-              A B.Tech IT student at IIIT Una with a passion for AI, Machine Learning, Generative AI, and Software Development. I enjoy building intelligent applications, solving algorithmic problems, and transforming ideas into real-world solutions.
+              I'm Hritviz Manral, an Information Technology student at IIIT Una focused on Machine Learning, Generative AI, and Software Engineering. I enjoy building end-to-end AI systems—from model development and experimentation to deployment and user-facing applications. My goal is to create technology that transforms data into meaningful insights and real-world impact.
             </p>
             
             <div className="flex flex-wrap items-center gap-4">
