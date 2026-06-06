@@ -12,7 +12,8 @@ import {
   Network,
   Send,
   User,
-  MessageSquare
+  MessageSquare,
+  Download
 } from "lucide-react";
 import { 
   SiPython, 
@@ -79,6 +80,15 @@ export default function Home() {
             <div className="flex flex-wrap items-center gap-4">
               <a href="#projects" className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-md hover:bg-primary/90 transition-colors">
                 View My Work
+              </a>
+              <a
+                href="/resume.pdf"
+                download="HritvizManral_Resume.pdf"
+                data-testid="link-download-resume"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground font-medium rounded-md hover:bg-secondary/80 transition-colors border border-border"
+              >
+                <Download className="w-4 h-4" />
+                Resume
               </a>
               <a href="https://github.com/Hritviz666" target="_blank" rel="noopener noreferrer" className="p-3 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors">
                 <Github className="w-5 h-5" />
