@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { 
   Github, 
@@ -13,7 +13,12 @@ import {
   Send,
   User,
   MessageSquare,
-  Download
+  Download,
+  Star,
+  GitFork,
+  ExternalLink,
+  Users,
+  BookOpen
 } from "lucide-react";
 import { 
   SiPython, 
@@ -45,6 +50,7 @@ export default function Home() {
             <a href="#about" className="hover:text-foreground transition-colors">About</a>
             <a href="#skills" className="hover:text-foreground transition-colors">Skills</a>
             <a href="#projects" className="hover:text-foreground transition-colors">Projects</a>
+            <a href="#github" className="hover:text-foreground transition-colors">GitHub</a>
             <a href="#achievements" className="hover:text-foreground transition-colors">Achievements</a>
             <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
           </div>
@@ -263,6 +269,20 @@ export default function Home() {
               delay={0.2}
             />
           </div>
+        </section>
+
+        {/* GITHUB STATS */}
+        <section id="github" className="space-y-12 scroll-mt-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-3xl font-display font-bold mb-2">GitHub Activity</h2>
+            <p className="text-muted-foreground text-lg">Live stats and top repositories.</p>
+          </motion.div>
+          <GitHubStats username="Hritviz666" />
         </section>
 
         {/* ACHIEVEMENTS */}
@@ -554,5 +574,163 @@ function ContactForm() {
         )}
       </div>
     </form>
+  );
+}
+
+interface GitHubUser {
+  public_repos: number;
+  followers: number;
+  following: number;
+  avatar_url: string;
+}
+
+interface GitHubRepo {
+  id: number;
+  name: string;
+  description: string | null;
+  html_url: string;
+  stargazers_count: number;
+  forks_count: number;
+  language: string | null;
+}
+
+function GitHubStats({ username }: { username: string }) {
+  const [user, setUser] = useState<GitHubUser | null>(null);
+  const [repos, setRepos] = useState<GitHubRepo[]>([]);
+  const [totalStars, setTotalStars] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const [userRes, reposRes] = await Promise.all([
+          fetch(`https://api.github.com/users/${username}`),
+          fetch(`https://api.github.com/users/${username}/repos?sort=stars&per_page=6`),
+        ]);
+        if (!userRes.ok || !reposRes.ok) throw new Error("GitHub API error");
+        const userData: GitHubUser = await userRes.json();
+        const reposData: GitHubRepo[] = await reposRes.json();
+        const stars = reposData.reduce((sum, r) => sum + r.stargazers_count, 0);
+        setUser(userData);
+        setRepos(reposData);
+        setTotalStars(stars);
+      } catch {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, [username]);
+
+  if (loading) {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 animate-pulse">
+        {[1, 2, 3].map((i) => (
+          <div key={i} className="h-24 rounded-xl bg-secondary border border-border" />
+        ))}
+      </div>
+    );
+  }
+
+  if (error || !user) {
+    return (
+      <p className="text-muted-foreground text-sm">Could not load GitHub data right now.</p>
+    );
+  }
+
+  const stats = [
+    { label: "Public Repos", value: user.public_repos, icon: <BookOpen className="w-5 h-5 text-primary" /> },
+    { label: "Total Stars", value: totalStars, icon: <Star className="w-5 h-5 text-primary" /> },
+    { label: "Followers", value: user.followers, icon: <Users className="w-5 h-5 text-primary" /> },
+  ];
+
+  return (
+    <div className="space-y-8">
+      {/* Stat counters */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {stats.map(({ label, value, icon }, i) => (
+          <motion.div
+            key={label}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: i * 0.1 }}
+            className="flex items-center gap-4 p-5 bg-background border border-border rounded-xl"
+          >
+            <div className="p-2.5 bg-primary/10 border border-primary/20 rounded-lg shrink-0">
+              {icon}
+            </div>
+            <div>
+              <p className="text-2xl font-display font-bold text-foreground">{value}</p>
+              <p className="text-xs text-muted-foreground mt-0.5">{label}</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Top repos */}
+      <div>
+        <p className="text-sm font-medium text-muted-foreground mb-4 uppercase tracking-wider">Top Repositories</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {repos.map((repo, i) => (
+            <motion.a
+              key={repo.id}
+              href={repo.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: i * 0.08 }}
+              className="group flex flex-col gap-3 p-4 bg-background border border-border rounded-xl hover:border-primary/40 transition-colors"
+            >
+              <div className="flex items-start justify-between gap-2">
+                <span className="font-medium text-sm text-foreground truncate">{repo.name}</span>
+                <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors shrink-0 mt-0.5" />
+              </div>
+              {repo.description && (
+                <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">{repo.description}</p>
+              )}
+              <div className="flex items-center gap-4 text-xs text-muted-foreground mt-auto">
+                {repo.language && (
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-primary" />
+                    {repo.language}
+                  </span>
+                )}
+                <span className="flex items-center gap-1">
+                  <Star className="w-3 h-3" />
+                  {repo.stargazers_count}
+                </span>
+                <span className="flex items-center gap-1">
+                  <GitFork className="w-3 h-3" />
+                  {repo.forks_count}
+                </span>
+              </div>
+            </motion.a>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.5 }}
+          className="mt-6 text-center"
+        >
+          <a
+            href={`https://github.com/${username}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            <Github className="w-4 h-4" />
+            View all repositories on GitHub
+          </a>
+        </motion.div>
+      </div>
+    </div>
   );
 }
