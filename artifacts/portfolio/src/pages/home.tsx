@@ -183,7 +183,7 @@ export default function Home() {
             <p className="text-muted-foreground text-lg">Tools and technologies I use to build systems.</p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <SkillCard 
               icon={<TerminalSquare className="w-6 h-6 text-primary" />}
               title="Languages"
@@ -203,10 +203,16 @@ export default function Home() {
               delay={0.3}
             />
             <SkillCard 
+              icon={<Code2 className="w-6 h-6 text-primary" />}
+              title="CS Fundamentals"
+              items={["OOP", "Data Structures & Algorithms", "Operating Systems", "Computer Networks", "DBMS", "Competitive Programming"]}
+              delay={0.4}
+            />
+            <SkillCard 
               icon={<Database className="w-6 h-6 text-primary" />}
               title="Web & Tools"
               items={["FastAPI", "Streamlit", "Docker", "Render", "Git"]}
-              delay={0.4}
+              delay={0.5}
             />
           </div>
 
