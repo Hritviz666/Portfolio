@@ -110,10 +110,13 @@ export default function Home() {
           >
             <h2 className="text-3xl font-display font-bold mb-6">About Me</h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-              A B.Tech IT student at IIIT Una with a passion for AI, Machine Learning, Generative AI, and Software Development. I enjoy building intelligent applications, solving algorithmic problems, and transforming ideas into real-world solutions.
+              I enjoy building intelligent systems that bridge the gap between data and decision-making.
+            </p>
+            <p className="text-muted-foreground text-base leading-relaxed mb-4">
+              My interests span Machine Learning, Generative AI, Multi-Agent Systems, and Scalable Software Engineering. I am particularly fascinated by how modern AI systems can be combined with strong software architecture to solve meaningful real-world problems.
             </p>
             <p className="text-muted-foreground text-base leading-relaxed mb-6">
-              Currently focused on ML, Deep Learning, Competitive Programming, and developing impactful AI-powered projects.
+              When I'm not building projects, you'll usually find me learning new technologies, solving algorithmic challenges, or exploring the latest developments in AI.
             </p>
             <div className="flex flex-wrap gap-2 mb-8">
               {["AI/ML", "Generative AI", "Deep Learning", "Software Engineering", "Competitive Programming", "System Design"].map((interest) => (
