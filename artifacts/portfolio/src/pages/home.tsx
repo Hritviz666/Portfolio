@@ -75,7 +75,7 @@ export default function Home() {
               <a href="#projects" className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-md hover:bg-primary/90 transition-colors">
                 View My Work
               </a>
-              <a href="https://github.com/hritvizmanral" target="_blank" rel="noopener noreferrer" className="p-3 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors">
+              <a href="https://github.com/Hritviz666" target="_blank" rel="noopener noreferrer" className="p-3 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors">
                 <Github className="w-5 h-5" />
               </a>
               <a href="https://linkedin.com/in/hritvizmanral" target="_blank" rel="noopener noreferrer" className="p-3 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors">
@@ -273,7 +273,7 @@ export default function Home() {
             © {new Date().getFullYear()} Hritviz Manral. All rights reserved.
           </div>
           <div className="flex gap-6 text-sm font-medium text-muted-foreground">
-            <a href="https://github.com/hritvizmanral" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>
+            <a href="https://github.com/Hritviz666" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>
             <a href="https://linkedin.com/in/hritvizmanral" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
             <a href="mailto:hritvizmanral66@gmail.com" className="hover:text-primary transition-colors">Email</a>
           </div>
