@@ -187,7 +187,7 @@ export default function Home() {
             <SkillCard 
               icon={<TerminalSquare className="w-6 h-6 text-primary" />}
               title="Languages"
-              items={["Python", "C/C++", "SQL (PostgreSQL)"]}
+              items={["Python", "C/C++", "PostgreSQL"]}
               delay={0.1}
             />
             <SkillCard 
