@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { 
   Github, 
@@ -8,7 +9,10 @@ import {
   Database,
   BrainCircuit,
   TerminalSquare,
-  Network
+  Network,
+  Send,
+  User,
+  MessageSquare
 } from "lucide-react";
 import { 
   SiPython, 
@@ -41,6 +45,7 @@ export default function Home() {
             <a href="#skills" className="hover:text-foreground transition-colors">Skills</a>
             <a href="#projects" className="hover:text-foreground transition-colors">Projects</a>
             <a href="#achievements" className="hover:text-foreground transition-colors">Achievements</a>
+            <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
           </div>
         </div>
       </nav>
@@ -267,6 +272,74 @@ export default function Home() {
           </div>
         </section>
         
+        {/* CONTACT SECTION */}
+        <section id="contact" className="scroll-mt-24">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-12"
+          >
+            <h2 className="text-3xl font-display font-bold mb-2">Get in Touch</h2>
+            <p className="text-muted-foreground text-lg">Have a project, opportunity, or question? Send a message.</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
+            {/* Contact info */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="md:col-span-2 flex flex-col gap-6"
+            >
+              <div>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  I'm currently open to internships, research collaborations, and interesting side projects in ML/AI and backend engineering.
+                </p>
+              </div>
+              <div className="flex flex-col gap-4">
+                <a href="mailto:hritvizmanral66@gmail.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group">
+                  <span className="w-9 h-9 rounded-md bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                    <Mail className="w-4 h-4 text-primary" />
+                  </span>
+                  hritvizmanral66@gmail.com
+                </a>
+                <a href="tel:+919557633091" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group">
+                  <span className="w-9 h-9 rounded-md bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                    <Phone className="w-4 h-4 text-primary" />
+                  </span>
+                  +91 95576 33091
+                </a>
+                <a href="https://github.com/Hritviz666" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group">
+                  <span className="w-9 h-9 rounded-md bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                    <Github className="w-4 h-4 text-primary" />
+                  </span>
+                  github.com/Hritviz666
+                </a>
+                <a href="https://linkedin.com/in/hritvizmanral" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group">
+                  <span className="w-9 h-9 rounded-md bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                    <Linkedin className="w-4 h-4 text-primary" />
+                  </span>
+                  linkedin.com/in/hritvizmanral
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Contact form */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="md:col-span-3"
+            >
+              <ContactForm />
+            </motion.div>
+          </div>
+        </section>
+
         {/* FOOTER */}
         <footer className="pt-12 border-t border-border mt-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-muted-foreground text-sm">
@@ -363,5 +436,94 @@ function AchievementCard({ title, description, delay }: { title: string, descrip
         <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
       </div>
     </motion.div>
+  );
+}
+
+function ContactForm() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sent, setSent] = useState(false);
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Portfolio contact from ${form.name}`);
+    const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`);
+    window.open(`mailto:hritvizmanral66@gmail.com?subject=${subject}&body=${body}`, "_blank");
+    setSent(true);
+    setTimeout(() => setSent(false), 4000);
+  }
+
+  const inputClass =
+    "w-full bg-secondary border border-border rounded-md px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/40 transition-colors";
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="relative">
+          <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+          <input
+            data-testid="input-name"
+            type="text"
+            name="name"
+            placeholder="Your name"
+            value={form.name}
+            onChange={handleChange}
+            required
+            className={`${inputClass} pl-10`}
+          />
+        </div>
+        <div className="relative">
+          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
+          <input
+            data-testid="input-email"
+            type="email"
+            name="email"
+            placeholder="Your email"
+            value={form.email}
+            onChange={handleChange}
+            required
+            className={`${inputClass} pl-10`}
+          />
+        </div>
+      </div>
+
+      <div className="relative">
+        <MessageSquare className="absolute left-3 top-3.5 w-4 h-4 text-muted-foreground pointer-events-none" />
+        <textarea
+          data-testid="input-message"
+          name="message"
+          placeholder="What's on your mind?"
+          value={form.message}
+          onChange={handleChange}
+          required
+          rows={5}
+          className={`${inputClass} pl-10 resize-none`}
+        />
+      </div>
+
+      <div className="flex items-center gap-4">
+        <button
+          data-testid="button-submit"
+          type="submit"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium rounded-md hover:bg-primary/90 transition-colors"
+        >
+          <Send className="w-4 h-4" />
+          Send Message
+        </button>
+        {sent && (
+          <motion.span
+            initial={{ opacity: 0, x: -8 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0 }}
+            className="text-sm text-primary font-medium"
+          >
+            Email client opened — message ready to send.
+          </motion.span>
+        )}
+      </div>
+    </form>
   );
 }
