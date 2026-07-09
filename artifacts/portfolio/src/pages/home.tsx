@@ -31,7 +31,6 @@ import {
   SiStreamlit,
   SiDocker,
   SiRender,
-  SiPowerbi
 } from "react-icons/si";
 
 export default function Home() {
@@ -50,6 +49,7 @@ export default function Home() {
             <a href="#projects" className="hover:text-foreground transition-colors">Projects</a>
             <a href="#certifications" className="hover:text-foreground transition-colors">Certifications</a>
             <a href="#achievements" className="hover:text-foreground transition-colors">Achievements</a>
+            <a href="#involvement" className="hover:text-foreground transition-colors">Involvement</a>
             <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
           </div>
         </div>
@@ -191,7 +191,7 @@ export default function Home() {
             <SkillCard 
               icon={<TerminalSquare className="w-6 h-6 text-primary" />}
               title="Languages"
-              items={["Python", "C/C++", "PostgreSQL"]}
+              items={["Python", "C/C++", "MySQL / PostgreSQL"]}
               delay={0.1}
             />
             <SkillCard 
@@ -214,9 +214,15 @@ export default function Home() {
             />
             <SkillCard 
               icon={<Database className="w-6 h-6 text-primary" />}
-              title="Web & Tools"
-              items={["FastAPI", "Streamlit", "Docker", "Render", "Git", "Power BI", "MS Excel"]}
+              title="Web / Backend"
+              items={["FastAPI", "Streamlit", "REST APIs"]}
               delay={0.5}
+            />
+            <SkillCard 
+              icon={<TerminalSquare className="w-6 h-6 text-primary" />}
+              title="Tools & Platforms"
+              items={["Git", "GitHub", "VS Code", "Jupyter Notebook", "Docker", "Render", "Power BI", "MS Excel"]}
+              delay={0.6}
             />
           </div>
 
@@ -261,10 +267,19 @@ export default function Home() {
             <ProjectCard 
               title="AI Research Assistant"
               subtitle="Multi-Agent Research Platform"
-              date="Apr 2026"
-              description="Multi-agent AI pipeline using 3 specialized agents (Researcher, Summarizer, Report Writer) running sequentially. Integrates Tavily Search for real-time web retrieval and OpenAI GPT-4o-mini for inference. FastAPI backend with Streamlit frontend."
+              date="March 2026"
+              description="Multi-agent AI pipeline using 3 specialized agents (Researcher, Summarizer, Report Writer) running sequentially. Integrates Tavily Search for real-time web retrieval and OpenAI GPT-4o-mini for inference. FastAPI backend exposing 4 endpoints with a Streamlit frontend and PDF export."
               tags={["CrewAI", "GPT-4o-mini", "Tavily", "FastAPI", "Streamlit", "Python"]}
               delay={0.2}
+            />
+
+            <ProjectCard 
+              title="FormSaathi"
+              subtitle="Multimodal AI Agent for Indian Government Forms"
+              date="May–July 2026"
+              description="End-to-end multimodal pipeline combining YOLOv8n (fine-tuned on 2,000+ annotated fields across 9 Indian form types, mAP@0.5 = 0.806) and Surya OCR to detect and extract fields from government and bank forms (PAN, Aadhaar, EPF, KYC). OCR-grounded LLM agent using GPT-4o-mini with RAG (LlamaIndex + ChromaDB) eliminates hallucination from form misclassification."
+              tags={["YOLOv8n", "Surya OCR", "GPT-4o-mini", "LlamaIndex", "ChromaDB", "FastAPI"]}
+              delay={0.3}
             />
           </div>
         </section>
@@ -338,6 +353,36 @@ export default function Home() {
           </div>
         </section>
         
+        {/* POSITIONS OF RESPONSIBILITY */}
+        <section id="involvement" className="space-y-10 scroll-mt-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-3xl font-display font-bold mb-2">Involvement</h2>
+            <p className="text-muted-foreground text-lg">Positions of responsibility.</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="flex items-start gap-4 p-6 bg-background border border-border rounded-xl"
+          >
+            <div className="p-2.5 bg-primary/10 border border-primary/20 rounded-lg shrink-0 mt-0.5">
+              <User className="w-5 h-5 text-primary" />
+            </div>
+            <div>
+              <h4 className="font-display font-bold text-foreground mb-1">Member, Force Club</h4>
+              <p className="text-primary text-sm font-medium mb-1">IIIT Una · 2024–Present</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">Active member of the Force Club at IIIT Una.</p>
+            </div>
+          </motion.div>
+        </section>
+
         {/* CONTACT SECTION */}
         <section id="contact" className="scroll-mt-24">
           <motion.div
