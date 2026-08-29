@@ -123,7 +123,7 @@ export default function Home() {
               When I'm not building projects, you'll usually find me learning new technologies, solving algorithmic challenges, or exploring the latest developments in AI.
             </p>
             <div className="flex flex-wrap gap-2 mb-8">
-              {["Generative AI", "Machine Learning", "Multi-Agent Systems", "RAG", "Competitive Programming", "DSA].map((interest) => (
+              {["Generative AI", "Machine Learning", "Multi-Agent Systems", "RAG", "Competitive Programming", "DSA"].map((interest) => (
                 <span key={interest} className="text-xs px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium">
                   {interest}
                 </span>
