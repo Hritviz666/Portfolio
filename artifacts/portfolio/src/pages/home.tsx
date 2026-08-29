@@ -78,7 +78,7 @@ export default function Home() {
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
-              I'm Hritviz Manral, a B.Tech Information Technology student at IIIT Una passionate about Generative AI, Machine Learning, and Software Engineering. I build hands-on AI systems using LLMs, Multi-Agent Systems, RAG, and end-to-end ML pipelines, with a strong focus on scalable applications for real-world problems.
+              I'm Hritviz Manral, a B.Tech Information Technology student at IIIT Una passionate about Generative AI, Machine Learning, and Software Engineering. I build hands on AI systems using LLMs, Multi-Agent Systems, RAG, and end to end ML pipelines, with a strong focus on scalable applications for real world problems.
             </p>
             
             <div className="flex flex-wrap items-center gap-4">
@@ -86,7 +86,7 @@ export default function Home() {
                 View My Work
               </a>
               <a
-                href="/resume.pdf"
+                href="/Hritviz_Manral_Resume.pdf"
                 download="Hritviz_Manral_Resume.pdf"
                 data-testid="link-download-resume"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground font-medium rounded-md hover:bg-secondary/80 transition-colors border border-border"
