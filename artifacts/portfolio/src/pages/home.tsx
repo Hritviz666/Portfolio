@@ -70,7 +70,7 @@ export default function Home() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
               <BrainCircuit className="w-4 h-4" />
-              <span>B.Tech IT Student | Generative AI | Machine Learning | Software Engineering </span>
+              <span>B.Tech IT Student | Generative AI | Machine Learning  </span>
             </div>
             
             <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tighter mb-6 leading-[1.1]">
@@ -92,7 +92,7 @@ export default function Home() {
                 className="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground font-medium rounded-md hover:bg-secondary/80 transition-colors border border-border"
               >
                 <Download className="w-4 h-4" />
-                Resume
+                Hritviz_Manral_Resume
               </a>
               <a href="https://github.com/Hritviz666" target="_blank" rel="noopener noreferrer" className="p-3 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors">
                 <Github className="w-5 h-5" />
@@ -117,13 +117,13 @@ export default function Home() {
               I enjoy building intelligent systems that turn complex problems into practical, scalable AI applications.
             </p>
             <p className="text-muted-foreground text-base leading-relaxed mb-4">
-              My interests span Generative AI, Machine Learning, Multi-Agent Systems, RAG, and Software Engineering. I enjoy combining modern AI techniques with strong software architecture to build reliable systems for real-world use cases.
+              My interests lies in Generative AI, Machine Learning, Multi-Agent Systems, RAG, and Software Engineering. I enjoy combining modern AI techniques with strong software architecture to build reliable systems for real world use cases.
             </p>
             <p className="text-muted-foreground text-base leading-relaxed mb-6">
               When I'm not building projects, you'll usually find me learning new technologies, solving algorithmic challenges, or exploring the latest developments in AI.
             </p>
             <div className="flex flex-wrap gap-2 mb-8">
-              {["Generative AI", "Machine Learning", "Multi-Agent Systems", "RAG", "Software Engineering", "Competitive Programming"].map((interest) => (
+              {["Generative AI", "Machine Learning", "Multi-Agent Systems", "RAG", "Competitive Programming", "DSA].map((interest) => (
                 <span key={interest} className="text-xs px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium">
                   {interest}
                 </span>
@@ -461,7 +461,7 @@ export default function Home() {
           </div>
           <div className="flex gap-6 text-sm font-medium text-muted-foreground">
             <a href="https://github.com/Hritviz666" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>
-            <a href="https://linkedin.com/in/Hritviz" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
+            <a href="www.linkedin.com/in/hritvizmanral" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
             <a href="mailto:hritvizmanral66@gmail.com" className="hover:text-primary transition-colors">Email</a>
           </div>
         </footer>
