@@ -70,7 +70,7 @@ export default function Home() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
               <BrainCircuit className="w-4 h-4" />
-              <span>B.Tech IT Student | AI & ML Enthusiast | Problem Solver </span>
+              <span>B.Tech IT Student | Generative AI | Machine Learning | Software Engineering </span>
             </div>
             
             <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tighter mb-6 leading-[1.1]">
@@ -78,7 +78,7 @@ export default function Home() {
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
-              I'm Hritviz Manral, an Information Technology student at IIIT Una focused on Machine Learning, Generative AI, and Software Engineering. I enjoy building end-to-end AI systems—from model development and experimentation to deployment and user-facing applications. My goal is to create technology that transforms data into meaningful insights and real-world impact.
+              I'm Hritviz Manral, a B.Tech Information Technology student at IIIT Una passionate about Generative AI, Machine Learning, and Software Engineering. I build hands-on AI systems using LLMs, Multi-Agent Systems, RAG, and end-to-end ML pipelines, with a strong focus on scalable applications for real-world problems.
             </p>
             
             <div className="flex flex-wrap items-center gap-4">
@@ -87,7 +87,7 @@ export default function Home() {
               </a>
               <a
                 href="/resume.pdf"
-                download="HritvizManral_Resume.pdf"
+                download="Hritviz_Manral_Resume.pdf"
                 data-testid="link-download-resume"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground font-medium rounded-md hover:bg-secondary/80 transition-colors border border-border"
               >
@@ -97,7 +97,7 @@ export default function Home() {
               <a href="https://github.com/Hritviz666" target="_blank" rel="noopener noreferrer" className="p-3 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors">
                 <Github className="w-5 h-5" />
               </a>
-              <a href="https://linkedin.com/in/hritvizmanral" target="_blank" rel="noopener noreferrer" className="p-3 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors">
+              <a href="https://linkedin.com/in/Hritviz" target="_blank" rel="noopener noreferrer" className="p-3 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/80 transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
@@ -114,16 +114,16 @@ export default function Home() {
           >
             <h2 className="text-3xl font-display font-bold mb-6">About Me</h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-              I enjoy building intelligent systems that bridge the gap between data and decision-making.
+              I enjoy building intelligent systems that turn complex problems into practical, scalable AI applications.
             </p>
             <p className="text-muted-foreground text-base leading-relaxed mb-4">
-              My interests span Machine Learning, Generative AI, Multi-Agent Systems, and Scalable Software Engineering. I am particularly fascinated by how modern AI systems can be combined with strong software architecture to solve meaningful real-world problems.
+              My interests span Generative AI, Machine Learning, Multi-Agent Systems, RAG, and Software Engineering. I enjoy combining modern AI techniques with strong software architecture to build reliable systems for real-world use cases.
             </p>
             <p className="text-muted-foreground text-base leading-relaxed mb-6">
               When I'm not building projects, you'll usually find me learning new technologies, solving algorithmic challenges, or exploring the latest developments in AI.
             </p>
             <div className="flex flex-wrap gap-2 mb-8">
-              {["AI/ML", "Generative AI", "Deep Learning", "Software Engineering", "Competitive Programming", "System Design"].map((interest) => (
+              {["Generative AI", "Machine Learning", "Multi-Agent Systems", "RAG", "Software Engineering", "Competitive Programming"].map((interest) => (
                 <span key={interest} className="text-xs px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium">
                   {interest}
                 </span>
@@ -191,19 +191,19 @@ export default function Home() {
             <SkillCard 
               icon={<TerminalSquare className="w-6 h-6 text-primary" />}
               title="Languages"
-              items={["Python", "C/C++", "MySQL / PostgreSQL"]}
+              items={["Python", "C/C++", "SQL (MySQL, PostgreSQL)"]}
               delay={0.1}
             />
             <SkillCard 
               icon={<BrainCircuit className="w-6 h-6 text-primary" />}
               title="ML / Deep Learning"
-              items={["Scikit-learn", "PyTorch", "NumPy", "Pandas", "HuggingFace"]}
+              items={["Scikit-learn", "PyTorch", "NumPy", "Pandas", "Transformers (HuggingFace)"]}
               delay={0.2}
             />
             <SkillCard 
               icon={<Network className="w-6 h-6 text-primary" />}
               title="GenAI & Agents"
-              items={["LangChain", "LangGraph", "Prompt Engineering"]}
+              items={["LangChain", "LangGraph", "CrewAI", "LlamaIndex", "ChromaDB", "Prompt Engineering", "RAG"]}
               delay={0.3}
             />
             <SkillCard 
@@ -221,7 +221,7 @@ export default function Home() {
             <SkillCard 
               icon={<TerminalSquare className="w-6 h-6 text-primary" />}
               title="Tools & Platforms"
-              items={["Git", "GitHub", "VS Code", "Jupyter Notebook", "Docker", "Render", "Power BI", "MS Excel"]}
+              items={["Git", "GitHub", "Docker", "VS Code", "Jupyter Notebook", "Render", "Power BI", "MS Excel"]}
               delay={0.6}
             />
           </div>
@@ -258,27 +258,30 @@ export default function Home() {
             <ProjectCard 
               title="Eleware"
               subtitle="Student Dropout Prediction System"
-              date="Oct–Dec 2025"
-              description="Built an end-to-end ML pipeline on 10,000+ records with a stacked ensemble (RandomForest, LightGBM, CatBoost, XGBoost) achieving ROC-AUC 95% and F1 90%. Optuna hyperparameter tuning minimized false negatives. Served via FastAPI and MongoDB Atlas."
-              tags={["Python", "MongoDB", "FastAPI", "Model Stacking", "Optuna", "scikit-learn"]}
+              date="Oct 2025 – Dec 2025"
+              description="Built an end-to-end ML pipeline trained on 10,000+ student records using a stacked ensemble of RandomForest, LightGBM, CatBoost and XGBoost. Achieved 95% ROC-AUC and 90% F1 through Optuna hyperparameter optimization, with FastAPI REST APIs and MongoDB Atlas for real-time prediction serving."
+              tags={["Python", "FastAPI", "MongoDB", "Scikit-learn", "Optuna", "XGBoost"]}
+              link="https://github.com/Hritviz666/Student-Dropout-Prediction"
               delay={0.1}
             />
             
             <ProjectCard 
               title="AI Research Assistant"
               subtitle="Multi-Agent Research Platform"
-              date="March 2026"
-              description="Multi-agent AI pipeline using 3 specialized agents (Researcher, Summarizer, Report Writer) running sequentially. Integrates Tavily Search for real-time web retrieval and OpenAI GPT-4o-mini for inference. FastAPI backend exposing 4 endpoints with a Streamlit frontend and PDF export."
+              date="Mar 2026"
+              description="Engineered a multi-agent research workflow using CrewAI with Researcher, Summarizer and Report Writer agents. Integrated Tavily Search with GPT-4o-mini for real-time web retrieval and factual report generation, with a FastAPI backend, Streamlit frontend, structured reports and PDF export."
               tags={["CrewAI", "GPT-4o-mini", "Tavily", "FastAPI", "Streamlit", "Python"]}
+              link="https://github.com/Hritviz666/Research-Assistant"
               delay={0.2}
             />
 
             <ProjectCard 
               title="FormSaathi"
               subtitle="Multimodal AI Agent for Indian Government Forms"
-              date="May–July 2026"
-              description="End-to-end multimodal pipeline combining YOLOv8n (fine-tuned on 2,000+ annotated fields across 9 Indian form types, mAP@0.5 = 0.806) and Surya OCR to detect and extract fields from government and bank forms (PAN, Aadhaar, EPF, KYC). OCR-grounded LLM agent using GPT-4o-mini with RAG (LlamaIndex + ChromaDB) eliminates hallucination from form misclassification."
-              tags={["YOLOv8n", "Surya OCR", "GPT-4o-mini", "LlamaIndex", "ChromaDB", "FastAPI"]}
+              date="May 2026 – Jul 2026"
+              description="Built a multimodal AI system combining YOLOv8 and OCR for Indian government and banking forms. Fine-tuned YOLOv8 on 2,000+ annotated fields across 9 form types, achieving mAP@0.5 = 0.806, and designed a hallucination-resistant RAG pipeline using GPT-4o-mini, LlamaIndex and ChromaDB."
+              tags={["YOLOv8", "GPT-4o-mini", "LlamaIndex", "ChromaDB", "FastAPI", "OCR"]}
+              link="https://github.com/Hritviz666/Form-Saathi"
               delay={0.3}
             />
           </div>
@@ -331,23 +334,23 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <AchievementCard 
-              title="500+ CP Problems Solved"
-              description="Consistent problem solving across LeetCode, Codeforces, and CodeChef (2024–present)."
+              title="500+ Algorithmic Problems Solved"
+              description="Solved 500+ problems across LeetCode, Codeforces and CodeChef."
               delay={0.1}
             />
             <AchievementCard 
-              title="Algo University DP Camp"
-              description="Selected from 4,000 shortlisted out of 40,000+ applicants; secured a top 1,000 finish (Apr 2026)."
+              title="CodeChef 2-Star"
+              description="Achieved a 2-Star rating on CodeChef."
               delay={0.2}
             />
             <AchievementCard 
-              title="Hackathon Finalist"
-              description="National-level hackathon at IIIT Gwalior (Apr 2026)."
+              title="National-Level Hackathon Finalist"
+              description="Finalist at the National-Level Hackathon conducted by IIIT Gwalior."
               delay={0.3}
             />
             <AchievementCard 
-              title="CodeChef 2-Star"
-              description="Achieved 2-Star rating on CodeChef (2026)."
+              title="Algo University DP Camp"
+              description="Selected among 4,000 candidates from 40,000+ applicants and finished in the Top 1,000."
               delay={0.4}
             />
           </div>
@@ -376,9 +379,9 @@ export default function Home() {
               <User className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <h4 className="font-display font-bold text-foreground mb-1">Member, Force Club</h4>
+              <h4 className="font-display font-bold text-foreground mb-1">Member, Force – The Coding Club</h4>
               <p className="text-primary text-sm font-medium mb-1">IIIT Una · 2024–Present</p>
-              <p className="text-sm text-muted-foreground leading-relaxed">Active member of the Force Club at IIIT Una.</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">Contribute to coding culture through competitive programming activities, technical events, peer learning sessions, workshops, contests, and technical initiatives.</p>
             </div>
           </motion.div>
         </section>
@@ -407,7 +410,7 @@ export default function Home() {
             >
               <div>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  I'm currently open to internships, research collaborations, and interesting side projects in ML/AI and backend engineering.
+                  I'm open to internships, AI/ML opportunities, and interesting projects involving Generative AI, Machine Learning, and Software Engineering.
                 </p>
               </div>
               <div className="flex flex-col gap-4">
@@ -429,11 +432,11 @@ export default function Home() {
                   </span>
                   github.com/Hritviz666
                 </a>
-                <a href="https://linkedin.com/in/hritvizmanral" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group">
+                <a href="https://linkedin.com/in/Hritviz" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group">
                   <span className="w-9 h-9 rounded-md bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
                     <Linkedin className="w-4 h-4 text-primary" />
                   </span>
-                  linkedin.com/in/hritvizmanral
+                  linkedin.com/in/Hritviz
                 </a>
               </div>
             </motion.div>
@@ -458,7 +461,7 @@ export default function Home() {
           </div>
           <div className="flex gap-6 text-sm font-medium text-muted-foreground">
             <a href="https://github.com/Hritviz666" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">GitHub</a>
-            <a href="https://linkedin.com/in/hritvizmanral" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
+            <a href="https://linkedin.com/in/Hritviz" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a>
             <a href="mailto:hritvizmanral66@gmail.com" className="hover:text-primary transition-colors">Email</a>
           </div>
         </footer>
@@ -493,14 +496,14 @@ function SkillCard({ icon, title, items, delay }: { icon: React.ReactNode, title
   );
 }
 
-function ProjectCard({ title, subtitle, date, description, tags, delay }: { title: string, subtitle: string, date: string, description: string, tags: string[], delay: number }) {
+function ProjectCard({ title, subtitle, date, description, tags, link, delay }: { title: string, subtitle: string, date: string, description: string, tags: string[], link: string, delay: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay }}
-      className="group relative flex flex-col p-8 bg-card border border-border rounded-2xl overflow-hidden"
+      className="group relative flex flex-col p-8 bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/40 transition-colors"
     >
       {/* Subtle hover gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -508,7 +511,15 @@ function ProjectCard({ title, subtitle, date, description, tags, delay }: { titl
       <div className="relative z-10 flex flex-col h-full">
         <div className="flex justify-between items-start mb-4">
           <div>
-            <h3 className="text-2xl font-display font-bold text-foreground mb-1">{title}</h3>
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group/title inline-flex items-center gap-2 text-2xl font-display font-bold text-foreground mb-1 hover:text-primary transition-colors"
+            >
+              {title}
+              <ExternalLink className="w-4 h-4 opacity-0 group-hover/title:opacity-100 transition-opacity" />
+            </a>
             <p className="text-primary text-sm font-medium">{subtitle}</p>
           </div>
           <span className="text-xs font-mono text-muted-foreground bg-background px-2 py-1 border border-border rounded">{date}</span>
