@@ -432,7 +432,7 @@ export default function Home() {
                   </span>
                   github.com/Hritviz666
                 </a>
-                <a href="https://linkedin.com/in/Hritviz" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group">
+                <a href="https://www.linkedin.com/in/hritvizmanral/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group">
                   <span className="w-9 h-9 rounded-md bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
                     <Linkedin className="w-4 h-4 text-primary" />
                   </span>
